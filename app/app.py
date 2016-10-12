@@ -23,7 +23,7 @@ if __name__ == "__main__":
     app = create_app()
 
     # TODO: Implement migrations and possibly build db in Dockerfile
-    if not os.path.isfile(app.config['DATABASE_URI']):
+    if not os.path.isfile(app.config['DATABASE_URI'].split(':')[1]):
         init_db(app)
 
     app.run(debug=True, host='0.0.0.0')
